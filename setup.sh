@@ -22,7 +22,7 @@ wget -O - https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public |
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 
-# rvm
+# rvm, key
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 
 # lemme upgrade chea
@@ -37,7 +37,7 @@ sudo apt-get -y --allow-unauthenticated install \
     indicator-multiload curl gparted dkms google-chrome-stable \
     ubuntu-wallpapers* gnome-terminal google-talkplugin \
     linux-headers-generic build-essential oracle-java8-installer \
-    oracle-java7-installer maven hipchat4 vagrant intellij-idea-community \
+    oracle-java7-installer maven hipchat4 intellij-idea-community \
     numix-gtk-theme numix-icon-theme-circle ttf-mscorefonts-installer \
     mysql-workbench-community nodejs npm mongodb-org
 
@@ -59,12 +59,13 @@ unzip ~/Downloads/awscli-bundle.zip
 # attempt to install anything that failed
 # sudo apt-get -f -y install
 
-# makey makey
-mkdir ~/.fonts ~/.themes ~/.icons ~/code
-# goodbye
-rm -rf ~/Documents ~/Public ~/Templates ~/Videos ~/Music
+# rvm to install ruby, ideally ruby wouldn't be a dep on any packages
+\curl -sSL https://get.rvm.io | bash
+source ~/.rvm/scripts/rvm
 
-# vagrant
+# vagrant, the ppa package has an older, incompatible version so this has to be manual ::sad_face_emoji::
+wget https://releases.hashicorp.com/vagrant/1.8.5/vagrant_1.8.5_x86_64.deb ~/Downloads
+sudo dpkg -i ~/Downloads/vagrant_1.8.5_x86_64.deb
 sudo vagrant plugin install vagrant-omnibus
 sudo vagrant plugin install vagrant-berkshelf
 
@@ -73,9 +74,10 @@ sudo npm install -g express-generator
 # for mongo
 sudo mkdir -p /data/db
 
-# rvm
-\curl -sSL https://get.rvm.io | bash
-source ~/.rvm/scripts/rvm
+# makey makey
+mkdir ~/.fonts ~/.themes ~/.icons ~/code
+# goodbye
+rm -rf ~/Documents ~/Public ~/Templates ~/Videos ~/Music
 
 echo "
 CHEF_COOKBOOKS_PATH=/home/drew/cookbooks
@@ -84,4 +86,4 @@ export CHEF_COOKBOOKS_PATH
 export CHEF_VERSION
 " | sudo tee -a ~/.bash_profile | sudo tee -a ~/.profile
 
-echo "Done. Log out man."
+echo "Done. Log out mane."
