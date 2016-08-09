@@ -11,8 +11,8 @@ sudo add-apt-repository -y ppa:mmk2410/intellij-idea-community
 sudo add-apt-repository -y ppa:numix/ppa
 
 # mysql
-wget https://dev.mysql.com/get/mysql-apt-config_0.7.3-1_all.deb
-sudo dpkg -i mysql-apt-config_0.7.3-1_all.deb
+wget https://dev.mysql.com/get/mysql-apt-config_0.7.3-1_all.deb -P ~/Downloads
+sudo dpkg -i ~/Downloads/mysql-apt-config_0.7.3-1_all.deb
 
 # hipchat
 sudo sh -c 'echo "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client $(lsb_release -c -s) main" > /etc/apt/sources.list.d/atlassian-hipchat4.list'
@@ -34,23 +34,21 @@ sudo apt-get -y --allow-unauthenticated install \
     numix-gtk-theme numix-icon-theme-circle ttf-mscorefonts-installer \
     mysql-workbench-community
 
-cd ~/Downloads
-
-wget https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.7-1ubu1604-amd64.deb
-sudo dpkg -i mysql-workbench-gpl-5.2.47-1ubu1204-amd64.deb 
+wget https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.7-1ubu1604-amd64.deb -P ~/Downloads
+sudo dpkg -i ~/Downloads/mysql-workbench-gpl-5.2.47-1ubu1204-amd64.deb 
 
 echo "Installing Slack"
-wget https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.0-amd64.deb
-sudo dpkg -i slack-desktop-2.1.0-amd64.deb
+wget https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.0-amd64.deb -P ~/Downloads
+sudo dpkg -i ~/Downloads/slack-desktop-2.1.0-amd64.deb
 
 echo "Installing ChefDK"
-wget https://packages.chef.io/stable/ubuntu/12.04/chefdk_0.16.28-1_amd64.deb
-sudo dpkg -i chefdk_0.16.28-1_amd64.deb
+wget https://packages.chef.io/stable/ubuntu/12.04/chefdk_0.16.28-1_amd64.deb -P ~/Downloads
+sudo dpkg -i ~/Downloads/chefdk_0.16.28-1_amd64.deb
 
 echo "Installing AWS CLI"
 wget https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
-unzip awscli-bundle.zip
-./awscli-bundle/install
+unzip ~/Downloads/awscli-bundle.zip
+~/Downloads/awscli-bundle/install
 
 # attempt to install anything that failed
 # sudo apt-get -f -y install
