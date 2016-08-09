@@ -18,7 +18,11 @@ sudo dpkg -i ~/Downloads/mysql-apt-config_0.7.3-1_all.deb
 sudo sh -c 'echo "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client $(lsb_release -c -s) main" > /etc/apt/sources.list.d/atlassian-hipchat4.list'
 wget -O - https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public | sudo apt-key add -
 
-# basic update
+# mongo
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+
+# lemme upgrade chea
 sudo apt-get -y --force-yes update
 sudo apt-get -y --force-yes upgrade
 
@@ -32,7 +36,7 @@ sudo apt-get -y --allow-unauthenticated install \
     linux-headers-generic build-essential oracle-java8-installer \
     oracle-java7-installer maven hipchat4 vagrant intellij-idea-community \
     numix-gtk-theme numix-icon-theme-circle ttf-mscorefonts-installer \
-    mysql-workbench-community
+    mysql-workbench-community nodejs npm mongodb-org
 
 wget https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.7-1ubu1604-amd64.deb -P ~/Downloads
 sudo dpkg -i ~/Downloads/mysql-workbench-gpl-5.2.47-1ubu1204-amd64.deb 
@@ -53,17 +57,18 @@ unzip ~/Downloads/awscli-bundle.zip
 # attempt to install anything that failed
 # sudo apt-get -f -y install
 
-# random directories
-mkdir ~/.fonts
-mkdir ~/.themes
-mkdir ~/.icons
-mkdir ~/code
+# makey makey
+mkdir ~/.fonts ~/.themes ~/.icons ~/code
+# goodbye
+rm -rf ~/Documents ~/Public ~/Templates ~/Videos ~/Music
 
-rm -rf ~/Documents
-rm -rf ~/Public
-rm -rf ~/Templates
-rm -rf ~/Videos
-rm -rf ~/Music
+# vagrant
+sudo vagrant plugin install vagrant-updater
+sudo vagrant plugin install vagrant-berkshelf
+
+# MEAN
+sudo npm install -g express-generator
+# for mongo
+sudo mkdir -p /data/db
 
 echo "Done."
-
