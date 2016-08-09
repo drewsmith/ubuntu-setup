@@ -80,7 +80,7 @@ mkdir ~/.fonts ~/.themes ~/.icons ~/code
 rm -rf ~/Documents ~/Public ~/Templates ~/Videos ~/Music
 
 echo "
-CHEF_COOKBOOKS_PATH=/home/drew/cookbooks
+CHEF_COOKBOOKS_PATH=/home/drew/code/cookbooks
 CHEF_VERSION=11.10.0
 export CHEF_COOKBOOKS_PATH
 export CHEF_VERSION
