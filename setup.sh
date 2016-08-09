@@ -38,8 +38,7 @@ sudo apt-get -y --allow-unauthenticated install \
     numix-gtk-theme numix-icon-theme-circle ttf-mscorefonts-installer \
     mysql-workbench-community nodejs npm mongodb-org
 
-wget https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.7-1ubu1604-amd64.deb -P ~/Downloads
-sudo dpkg -i ~/Downloads/mysql-workbench-gpl-5.2.47-1ubu1204-amd64.deb 
+# non PPA below
 
 echo "Installing Slack"
 wget https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.0-amd64.deb -P ~/Downloads
