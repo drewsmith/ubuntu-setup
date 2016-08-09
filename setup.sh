@@ -63,7 +63,7 @@ mkdir ~/.fonts ~/.themes ~/.icons ~/code
 rm -rf ~/Documents ~/Public ~/Templates ~/Videos ~/Music
 
 # vagrant
-sudo vagrant plugin install vagrant-updater
+sudo vagrant plugin install vagrant-omnibus
 sudo vagrant plugin install vagrant-berkshelf
 
 # MEAN
