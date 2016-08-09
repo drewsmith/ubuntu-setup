@@ -46,7 +46,7 @@ wget https://packages.chef.io/stable/ubuntu/12.04/chefdk_0.16.28-1_amd64.deb -P 
 sudo dpkg -i ~/Downloads/chefdk_0.16.28-1_amd64.deb
 
 echo "Installing AWS CLI"
-wget https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
+wget https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -P ~/Downloads
 unzip ~/Downloads/awscli-bundle.zip
 ~/Downloads/awscli-bundle/install
 
