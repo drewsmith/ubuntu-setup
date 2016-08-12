@@ -25,6 +25,9 @@ echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" 
 # rvm, key
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 
+# nodejs
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+
 # lemme upgrade chea
 sudo apt-get -y --force-yes update
 sudo apt-get -y --force-yes upgrade
